@@ -141,3 +141,7 @@ footer strong {
     font-size: 15px;
   }
 }
+
+.listElements {
+    color: red;
+}

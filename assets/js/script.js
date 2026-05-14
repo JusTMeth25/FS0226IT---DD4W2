@@ -46,7 +46,63 @@ console.log(listElements);
 
 const colorElements = function () {
   for (let i = 0; i < listElements.length; i++) {
-    listElements[i].style.color = "red";
+    listElements[i].classList.add("listElements"); // classList.add ancora non abbiamo visto
   }
 };
 colorElements();
+
+// Closure
+
+function creaContatore() {
+  let count = 0;
+  let increment = 1;
+  return function () {
+    count++;
+    increment = increment * 2;
+    return `Il valore di count è ${count}, il valore di increment è (${increment})`;
+  };
+}
+
+const contatore = creaContatore();
+const count = document.querySelector("#count");
+
+for (let i = 0; i < 8; i++) {
+  count.innerHTML += `<li>${contatore()}</li>`;
+}
+
+let myName = "Lorenzo Melis Melis";
+console.log(myName.includes("Mel"));
+console.log(myName.indexOf("li"));
+console.log(myName.slice(6, 10));
+
+const myNameArray = myName.split(" ");
+console.log(myNameArray);
+
+let myNameJoined = myNameArray.join().replaceAll(",", " "); // sostituisci le virgole con lo spazio
+console.log(myNameJoined);
+
+const today = new Date();
+console.log(today);
+//console.log(today).getDate(),today.getMonth(),today.getFullYear();
+
+const myBirthday = new Date(1997,03,25);
+console.log(myBirthday);
+
+// Math
+let myAbs = Math.abs (3.15);
+console.log(myAbs);
+
+
+// Numero casuale da 1 a 10
+let myCasualNumeber = Math.floor(Math.random() * 11);
+console.log(myCasualNumeber);
+//let myCasualNumeber = Math.floor(Math.random() * 10) + 1;
+//console.log(myCasualNumeber);
+
+function filtraPerCatgegoria (lista, categoria) {
+    const trovati = [];
+    for (const p of lista) {
+        if (p.categoria === categoria) trovati.push(p);
+    }
+    return trovati;
+}
