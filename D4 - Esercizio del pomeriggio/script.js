@@ -131,6 +131,15 @@ console.log(invertiStringa("Lorenzo"));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function inizialiMaiuscole(frase) {
+   let primaLettera = frase.split("");
+   for (let i = 0; i < inizialiMaiuscole.length; i ++) {
+      primaLettera.slice(0, 1) 
+   }
+}
+
+
+
 
 /* ESERCIZIO 9 — togliPrimoEUltimo
    Funzione togliPrimoEUltimo(testo): rimuovi primo e ultimo carattere.
