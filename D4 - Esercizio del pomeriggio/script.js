@@ -92,9 +92,10 @@ console.log(epify("EPICODE"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function divisibilePer3o7(n) {
-   if (n > 0 && (n % 3 === 0 || n % 7 === 0)) {
-      return true;
-   } return false;
+  if (n > 0 && (n % 3 === 0 || n % 7 === 0)) {
+    return true;
+  }
+  return false;
 }
 console.log(divisibilePer3o7(84));
 console.log(divisibilePer3o7(21));
@@ -108,21 +109,18 @@ console.log(divisibilePer3o7(-3));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function invertiStringa(testo) {
-let testoInv = testo.split("");
-let testoInvertito = [];
+  let testoInv = testo.split("");
+  let testoInvertito = [];
 
-for (let i = testoInv.length - 1; i >= 0; i --) {
-testoInvertito.push(testoInv[i]);
+  for (let i = testoInv.length - 1; i >= 0; i--) {
+    testoInvertito.push(testoInv[i]);
+  }
+
+  return testoInvertito.join("");
 }
 
-return (testoInvertito.join(""));
-
-}
-
-console.log(invertiStringa(('Epicode')));
+console.log(invertiStringa("Epicode"));
 console.log(invertiStringa("Lorenzo"));
-
-
 
 /* ESERCIZIO 8 — inizialiMaiuscole
    Funzione inizialiMaiuscole(frase): metti in maiuscolo la prima lettera di ogni parola.
@@ -132,14 +130,17 @@ console.log(invertiStringa("Lorenzo"));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 function inizialiMaiuscole(frase) {
-   let primaLettera = frase.split("");
-   for (let i = 0; i < inizialiMaiuscole.length; i ++) {
-      primaLettera.slice(0, 1) 
-   }
+  let primaLettera = frase.split(" ");
+  for (let i = 0; i < inizialiMaiuscole.length; i++) {
+    let lettereCorrenti = primaLettera[i];
+    let letteraMaiuscola = lettereCorrenti[i].slice(0, 1).toUpperCase();
+    let ultimaMaiuscola = lettereCorrenti[i].slice(1);
+    primaLettera[i] = letteraMaiuscola + ultimaMaiuscola;
+  }
+  return primaLettera.join(" ");
 }
 
-
-
+console.log(inizialiMaiuscole("ciao mondo"));
 
 /* ESERCIZIO 9 — togliPrimoEUltimo
    Funzione togliPrimoEUltimo(testo): rimuovi primo e ultimo carattere.
