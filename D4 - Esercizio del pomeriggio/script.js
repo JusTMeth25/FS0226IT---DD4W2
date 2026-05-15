@@ -61,9 +61,8 @@ console.log(distanzaDa19(25));
 function dentroIntervallo(n) {
   if ((n >= 20 && n <= 100) || n === 400) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 }
 
 console.log(dentroIntervallo(25));
@@ -84,7 +83,7 @@ function epify(testo) {
   return "EPICODE" + testo;
 }
 console.log(epify("mimmo"));
-console.log(epify("EPICODE"));
+console.log(epify("EPICODE mimmo"));
 
 /* ESERCIZIO 6 — divisibilePer3o7
    Funzione divisibilePer3o7(n): true se n positivo E divisibile per 3 O per 7.
@@ -108,7 +107,7 @@ console.log(divisibilePer3o7(-3));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function invertiStringa(testo) {
+function invertiStringa(testo = "") {
   let testoInv = testo.split("");
   let testoInvertito = [];
 
@@ -129,25 +128,29 @@ console.log(invertiStringa("Lorenzo"));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function inizialiMaiuscole(frase) {
-  let primaLettera = frase.split(" ");
-  for (let i = 0; i < inizialiMaiuscole.length; i++) {
-    let lettereCorrenti = primaLettera[i];
-    let letteraMaiuscola = lettereCorrenti[i].slice(0, 1).toUpperCase();
-    let ultimaMaiuscola = lettereCorrenti[i].slice(1);
-    primaLettera[i] = letteraMaiuscola + ultimaMaiuscola;
+const inizialiMaiuscole = function (frase) {
+  const words = frase.split(" ");
+  const result = [];
+  for (const word of words) {
+    const firstLetter = word.slice(0, 1).toUpperCase(); // parti dalla posizione 0 e togli una lettera, la prima
+    const remain = word.slice(1); // parti dalla seconda lettera e tira fuori tutto il resto
+    result.push(firstLetter + remain);
   }
-  return primaLettera.join(" ");
-}
+  return result.join(" ");
+};
 
-console.log(inizialiMaiuscole("ciao mondo"));
-
+console.log(inizialiMaiuscole("mimmo claudio e franco"));
 /* ESERCIZIO 9 — togliPrimoEUltimo
    Funzione togliPrimoEUltimo(testo): rimuovi primo e ultimo carattere.
    Usa slice. Prova con "EPICODE".
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const togliPrimoEUltimo = function (testo = "") {
+  return testo.slice(1, testo.length - 1);
+};
+
+console.log(togliPrimoEUltimo("EPICODE"));
 
 /* ESERCIZIO 10 — dammiCasuali
    Funzione dammiCasuali(n): ritorna un array di n numeri interi casuali tra 0 e 10 (inclusi).
@@ -155,7 +158,16 @@ console.log(inizialiMaiuscole("ciao mondo"));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-
+/*function dammiCasuali(n) {
+  const casualNumbers = [];
+  for (let i = 0; i < n; i++) {
+    casualNumbers = Math.floor(Math.random() * 11);
+    casualNumbers.push(Math.floor(Math.random() * 11));
+  }
+  return casualNumbers;
+}
+console.log(dammiCasuali(10));
+*/
 /* --EXTRA-- ESERCIZIO 11 — etaInGiorni
    Funzione etaInGiorni(annoNascita, meseNascita, giornoNascita).
    Ritorna l'età in giorni rispetto a oggi.
@@ -167,3 +179,43 @@ console.log(inizialiMaiuscole("ciao mondo"));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+const etaInGiorni = function (annoNascita, meseNascita, giornoNascita) {
+  const todayDate = new Date();
+  const birthDay = new Date(annoNascita, meseNascita - 1, giornoNascita);
+  const millisecondi = todayDate - birthDay;
+  const daysFromBirth = Math.floor(millisecondi / (1000 * 60 * 60 * 24));
+  console.log(`'Hai ${daysFromBirth} giorni!'`);
+};
+
+etaInGiorni(1996, 04, 25);
+
+// Esercizio di quanti gatti in file ci sono
+const gatti = function (a, b) {
+  const file = Math.ceil(a / b);
+  const gattimancanti = a % b;
+  console.log(gattimancanti);
+  console.log(file);
+  return { file, gattimancanti };
+};
+
+console.log(gatti(44, 6));
+
+// Esercizio conta il tempo
+const conversioneSecondiOre = function (secondi) {
+  const ore = Math.floor(secondi / (60 * 60));
+  const minuti = Math.floor((secondi % 3600) / 60);
+  const sec = secondi % 60;
+
+  console.log(`${ore} ore, ${minuti} minuti, ${sec} secondi`);
+};
+
+conversioneSecondiOre(12560);
+
+//
+const casuale = function (n) {
+  return Math.floor(Math.random() * n + 1);
+};
+console.log(casuale(4));
+for (let i = 0; i < 10; i ++) {
+   console.log(casuale(4));
+}
