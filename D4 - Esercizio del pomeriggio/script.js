@@ -211,11 +211,27 @@ const conversioneSecondiOre = function (secondi) {
 
 conversioneSecondiOre(12560);
 
-//
-const casuale = function (n) {
-  return Math.floor(Math.random() * n + 1);
-};
-console.log(casuale(4));
-for (let i = 0; i < 10; i ++) {
-   console.log(casuale(4));
-}
+// //
+// const casuale = function (n) {
+//   return Math.floor(Math.random() * n + 1);
+// };
+// console.log(casuale(4));
+// for (let i = 0; i < 10; i++) {
+//   console.log(casuale(4));
+// }
+
+/*
+  Somma e media
+  Scrivi un programma che dati 5 numeri restituisca in output la somma e la media.
+
+  Esempio:
+    Input: a = 1, b = 2, c = 3, d = 4, e = 5
+    Output: somma = 15, media = 3
+  
+  http://www.imparareaprogrammare.it
+*/
+
+const a = 1, b = 2, c = 3, d = 4, e = 5;
+const somma = a + b + c + d + e;
+const media = somma / 5;
+console.log(`somma = ${somma}, media = ${media}`);
